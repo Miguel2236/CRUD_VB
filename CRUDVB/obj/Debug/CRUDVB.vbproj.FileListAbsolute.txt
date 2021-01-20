@@ -1,0 +1,11 @@
+c:\users\ti\documents\visual studio 2017\Projects\CRUDVB\CRUDVB\bin\Debug\CRUDVB.exe.config
+c:\users\ti\documents\visual studio 2017\Projects\CRUDVB\CRUDVB\bin\Debug\CRUDVB.exe
+c:\users\ti\documents\visual studio 2017\Projects\CRUDVB\CRUDVB\bin\Debug\CRUDVB.pdb
+c:\users\ti\documents\visual studio 2017\Projects\CRUDVB\CRUDVB\bin\Debug\CRUDVB.xml
+c:\users\ti\documents\visual studio 2017\Projects\CRUDVB\CRUDVB\obj\Debug\CRUDVB.vbprojResolveAssemblyReference.cache
+c:\users\ti\documents\visual studio 2017\Projects\CRUDVB\CRUDVB\obj\Debug\CRUDVB.frmUser.resources
+c:\users\ti\documents\visual studio 2017\Projects\CRUDVB\CRUDVB\obj\Debug\CRUDVB.Resources.resources
+c:\users\ti\documents\visual studio 2017\Projects\CRUDVB\CRUDVB\obj\Debug\CRUDVB.vbproj.GenerateResource.Cache
+c:\users\ti\documents\visual studio 2017\Projects\CRUDVB\CRUDVB\obj\Debug\CRUDVB.exe
+c:\users\ti\documents\visual studio 2017\Projects\CRUDVB\CRUDVB\obj\Debug\CRUDVB.xml
+c:\users\ti\documents\visual studio 2017\Projects\CRUDVB\CRUDVB\obj\Debug\CRUDVB.pdb
