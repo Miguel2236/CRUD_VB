@@ -37,6 +37,10 @@ Partial Class frmUser
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.rdbMale = New System.Windows.Forms.RadioButton()
         Me.rdbFemale = New System.Windows.Forms.RadioButton()
+        Me.grdData = New System.Windows.Forms.DataGridView()
+        Me.btnSearch = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        CType(Me.grdData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblTitle
@@ -44,7 +48,7 @@ Partial Class frmUser
         Me.lblTitle.AutoSize = True
         Me.lblTitle.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.Maroon
-        Me.lblTitle.Location = New System.Drawing.Point(116, 23)
+        Me.lblTitle.Location = New System.Drawing.Point(239, 18)
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(200, 27)
         Me.lblTitle.TabIndex = 0
@@ -62,7 +66,6 @@ Partial Class frmUser
         '
         'txtID
         '
-        Me.txtID.Enabled = False
         Me.txtID.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtID.Location = New System.Drawing.Point(121, 82)
         Me.txtID.Name = "txtID"
@@ -157,7 +160,7 @@ Partial Class frmUser
         'btnAdd
         '
         Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Location = New System.Drawing.Point(171, 368)
+        Me.btnAdd.Location = New System.Drawing.Point(64, 368)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(88, 38)
         Me.btnAdd.TabIndex = 14
@@ -186,12 +189,43 @@ Partial Class frmUser
         Me.rdbFemale.Text = "Female"
         Me.rdbFemale.UseVisualStyleBackColor = True
         '
+        'grdData
+        '
+        Me.grdData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.grdData.Location = New System.Drawing.Point(354, 82)
+        Me.grdData.Name = "grdData"
+        Me.grdData.Size = New System.Drawing.Size(456, 209)
+        Me.grdData.TabIndex = 17
+        '
+        'btnSearch
+        '
+        Me.btnSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSearch.Location = New System.Drawing.Point(177, 368)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(88, 38)
+        Me.btnSearch.TabIndex = 18
+        Me.btnSearch.Text = "SEARCH"
+        Me.btnSearch.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(293, 368)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(88, 38)
+        Me.Button2.TabIndex = 19
+        Me.Button2.Text = "ADD"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'frmUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.ClientSize = New System.Drawing.Size(413, 430)
+        Me.ClientSize = New System.Drawing.Size(835, 430)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.btnSearch)
+        Me.Controls.Add(Me.grdData)
         Me.Controls.Add(Me.rdbFemale)
         Me.Controls.Add(Me.rdbMale)
         Me.Controls.Add(Me.btnAdd)
@@ -209,6 +243,7 @@ Partial Class frmUser
         Me.Controls.Add(Me.lblTitle)
         Me.Name = "frmUser"
         Me.Text = "User"
+        CType(Me.grdData, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -229,4 +264,7 @@ Partial Class frmUser
     Friend WithEvents btnAdd As Button
     Friend WithEvents rdbMale As RadioButton
     Friend WithEvents rdbFemale As RadioButton
+    Friend WithEvents grdData As DataGridView
+    Friend WithEvents btnSearch As Button
+    Friend WithEvents Button2 As Button
 End Class

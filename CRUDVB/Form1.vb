@@ -29,6 +29,7 @@ Public Class frmUser
                 cmd.ExecuteNonQuery()
                 con.Close()
                 clear_form()
+                getData()
                 MessageBox.Show("Successfully added")
             End Using
         End Using
@@ -44,4 +45,52 @@ Public Class frmUser
         rdbFemale.Checked = False
     End Sub
 
+    Private Sub getData()
+        ' obtener los datos y pegarlos a la tabla
+        Dim sqlQuery As String = "SELECT * FROM UserInfo"
+        Using con As SqlConnection = New SqlConnection("Data Source=DESKTOP-JT4DFR6;Initial Catalog=Users;Integrated Security=True")
+            Using cmd As SqlCommand = New SqlCommand(sqlQuery, con)
+                Using da As New SqlDataAdapter()
+                    da.SelectCommand = cmd
+                    Using dt As New DataTable()
+                        da.Fill(dt)
+                        grdData.DataSource = dt
+                    End Using
+                End Using
+            End Using
+        End Using
+    End Sub
+
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        Dim id As Integer = txtID.Text
+        Dim sqlQuery As String = "SELECT * FROM UserInfo WHERE id = @id"
+        Using con As SqlConnection = New SqlConnection("Data Source=DESKTOP-JT4DFR6;Initial Catalog=Users;Integrated Security=True")
+            Using cmd As SqlCommand = New SqlCommand(sqlQuery, con)
+                cmd.Parameters.AddWithValue("@id", id)
+                Using da As New SqlDataAdapter()
+                    da.SelectCommand = cmd
+                    Using dt As New DataTable()
+                        da.Fill(dt)
+                        If dt.Rows.Count > 0 Then
+
+                            txtID.Text = dt.Rows(0)(0).ToString()
+                            txtName.Text = dt.Rows(0)(1).ToString()
+                            txtAddress.Text = dt.Rows(0)(2).ToString()
+                            cmbCity.Text = dt.Rows(0)(3).ToString()
+                            txtAge.Text = dt.Rows(0)(4).ToString()
+
+                            If dt.Rows(0)(5) = "Male" Then
+                                rdbMale.Checked = True
+                            Else
+                                rdbFemale.Checked = True
+                            End If
+                        Else
+                            MessageBox.Show("No hay registro")
+                        End If
+                    End Using
+                End Using
+
+            End Using
+        End Using
+    End Sub
 End Class
