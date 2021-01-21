@@ -37,6 +37,7 @@ Public Class frmUser
 
     Private Sub clear_form()
         ' Limpiar formulario
+        txtID.Text = ""
         txtName.Text = ""
         txtAddress.Text = ""
         cmbCity.Items.Clear()
@@ -74,12 +75,12 @@ Public Class frmUser
                         If dt.Rows.Count > 0 Then
 
                             txtID.Text = dt.Rows(0)(0).ToString()
-                            txtName.Text = dt.Rows(0)(1).ToString()
-                            txtAddress.Text = dt.Rows(0)(2).ToString()
-                            cmbCity.Text = dt.Rows(0)(3).ToString()
+                            txtName.Text = Trim(dt.Rows(0)(1).ToString())
+                            txtAddress.Text = Trim(dt.Rows(0)(2).ToString())
+                            cmbCity.SelectedItem = Trim(dt.Rows(0)(3).ToString())
                             txtAge.Text = dt.Rows(0)(4).ToString()
 
-                            If dt.Rows(0)(5) = "Male" Then
+                            If Trim(dt.Rows(0)(5)) = "Male" Then
                                 rdbMale.Checked = True
                             Else
                                 rdbFemale.Checked = True
@@ -90,6 +91,43 @@ Public Class frmUser
                     End Using
                 End Using
 
+            End Using
+        End Using
+    End Sub
+
+    Private Sub btnList_Click(sender As Object, e As EventArgs) Handles btnList.Click
+        ' obtener la lista de todos los registros
+        getData()
+    End Sub
+
+    Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
+        Dim id As Integer = txtID.Text
+        Dim name As String = txtName.Text
+        Dim address As String = txtAddress.Text
+        Dim city As String = cmbCity.Text
+        Dim age As Integer = txtAge.Text
+        Dim sex As String = ""
+        If rdbMale.Checked = True Then
+            sex = rdbMale.Text
+        ElseIf rdbFemale.Checked = True Then
+            sex = rdbFemale.Text
+        End If
+
+        Dim sqlQuery As String = "UPDATE UserInfo SET Name = @name, Address = @address, City = @city, Age = @age, Sex = @sex WHERE ID = @id"
+        Using con As SqlConnection = New SqlConnection("Data Source=DESKTOP-JT4DFR6;Initial Catalog=Users;Integrated Security=True")
+            Using cmd As SqlCommand = New SqlCommand(sqlQuery, con)
+                cmd.Parameters.AddWithValue("@id", id)
+                cmd.Parameters.AddWithValue("@name", name)
+                cmd.Parameters.AddWithValue("@address", address)
+                cmd.Parameters.AddWithValue("@city", city)
+                cmd.Parameters.AddWithValue("@age", age)
+                cmd.Parameters.AddWithValue("@sex", sex)
+                con.Open()
+                cmd.ExecuteNonQuery()
+                con.Close()
+                clear_form()
+                getData()
+                MessageBox.Show("Successfully edited")
             End Using
         End Using
     End Sub
